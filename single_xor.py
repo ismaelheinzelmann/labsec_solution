@@ -8,7 +8,7 @@ def scores(SECRET: fixed_xor.ByteObject):
     #256 bits
     for key in range(256):
         KEY_SECRET = fixed_xor.ByteObject(hex(key).split('x')[1] * len(SECRET.getHex()))
-        xor_iteration = SECRET.iterate(KEY_SECRET)
+        xor_iteration = SECRET^KEY_SECRET
 
         guess = (score(xor_iteration), key)
         if guess != None: results.append(guess)
@@ -25,7 +25,7 @@ def crack_cipher(cipher:str):
         hex_key = str(hex(key).split('x')[1]).upper() * len(cipher)
         byteobject_key = fixed_xor.ByteObject(hex_key)
         try:
-            print(SECRET.iterate(byteobject_key))
+            print(SECRET^byteobject_key)
         except Exception as e: print(e)
 
 if __name__ == "__main__":

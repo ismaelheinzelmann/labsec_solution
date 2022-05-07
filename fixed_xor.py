@@ -11,7 +11,8 @@ class ByteObject(hex_to_64.HexTo64):
         self._bytes = bytes.fromhex(self.getHex())
         return self._bytes
 
-    def iterate(self, other):
+    #dunder para xor
+    def __xor__(self, other):
         if type(other) != type(self):
             raise TypeError("Os objetos a serem iterados devem ser do tipo ByteObject")
         xor = b''
@@ -26,6 +27,6 @@ if __name__ == "__main__":
 
     HEX1 = ByteObject('1c0111001f010100061a024b53535009181c')
     HEX2 = ByteObject('686974207468652062756c6c277320657965')
-    print(HEX1.iterate(HEX2))
+    print(HEX1^HEX2)
     
 

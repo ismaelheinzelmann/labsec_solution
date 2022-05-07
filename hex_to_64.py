@@ -15,24 +15,10 @@ class HexTo64:
         except ValueError: raise Exception("Hexadecimal Invalido")  
 
         self._hex = hex
-
-    def setHex(self, hex:str):
-        check = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
-        try:
-            for letter in hex.upper():
-                check.index(letter)
-        except ValueError: raise Exception("Hexadecimal Invalido")  
-
-        self._hex = hex
     
     def getHex(self):
         if self._hex == b'': raise Exception("Hexadecimal nao definido.")
         return self._hex
-    
-    def getHexString(self):
-        str = bytes.fromhex(self.getHex())
-        
-        return str
 
     def getBase64(self):
 
@@ -44,7 +30,6 @@ class HexTo64:
 if __name__ == "__main__":
 
     HEX = HexTo64('49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d')
-
-    print(HEX.getBase64())
     print(HEX.getHex())
-    print(HEX.getHexString())
+    print(HEX.getBase64())
+    
