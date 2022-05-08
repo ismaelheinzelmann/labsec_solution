@@ -9,4 +9,3 @@ if __name__ == '__main__':
     encrypt = Encrypt()
 
     print(encrypt.encryptByKey(MSG,KEY).hex())
-    print()

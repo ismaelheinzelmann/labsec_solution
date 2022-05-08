@@ -5,5 +5,6 @@ def getCipherEachLine(txt:str):
         counter = 0     
         for line in file.readlines():
             counter += 1
+            #listar apenas o "chunk" escondido
             if counter == 171:
                 single_xor.crack_cipher(line.replace('\n',''))
